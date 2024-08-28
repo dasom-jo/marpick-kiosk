@@ -1,4 +1,4 @@
-import OpenMain from "@/components/OpenPage/OpenMain";
+import OpenMain from "@/containers/OpenPage/OpenMain";
 import "./globals.scss";
 
 export default function Home() {

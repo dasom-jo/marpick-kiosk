@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import FlatwareIcon from '@mui/icons-material/Flatware';
+import Header from "@/components/header/Header";
+import "../OpenPage/OpenMain.scss"
 //메뉴리스트:선택메뉴
 //마지막멘트데이터 : 결제금액,먹/포,결제방법
 //관리자데이터:날짜,총금액,결제방법
@@ -15,18 +17,17 @@ const OpenMain = () => {
         const updatedState = [...wantHere];
         updatedState[0] = "TakeOut"
         setWantHere(updatedState);
+        router.push("/menu")
     }
     const handleForHere = () =>{;
         const updatedState = [...wantHere];
         updatedState[0] = "ForHere"
         setWantHere(updatedState);
+        router.push("/menu")
     }
     return (
         <>
-            <h1 id="Title">
-                <div id="TitleName"> 마라 PICK</div>
-                <div className="Circle"></div>
-            </h1>
+            <Header/>
             <div className="ClickBtn">
                 <div id="TakeOut" onClick={handleTakeOut}>
                     <div className="Icon" >
