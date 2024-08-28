@@ -1,5 +1,5 @@
 import { getConnection, query } from "../db";
-
+//http://localhost:3000/api/map
 export async function GET() {
     const connection = await getConnection();
 
