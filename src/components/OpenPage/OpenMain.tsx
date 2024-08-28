@@ -10,6 +10,7 @@ const OpenMain = () => {
     const [wantHere, setWantHere] = useRecoilState(eatOrGo);
 
     const handleTakeOut = () =>{
+        console.log("takeout");
         const updatedState = [...wantHere];
         updatedState[0] = "TakeOut"
         setWantHere(updatedState);
