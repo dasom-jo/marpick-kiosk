@@ -1,0 +1,15 @@
+#LocationDoubleBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.LocationBtn {
+  margin: 10px 50px;
+  padding: 50px;
+  background-color: red;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+}/*# sourceMappingURL=LocationBtn.css.map */

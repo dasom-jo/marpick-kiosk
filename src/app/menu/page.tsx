@@ -1,9 +1,10 @@
-import SelectMain from "@/containers/SelectPage/SelectMenu";
+import MenuPage from "@/pages/api/menu/page";
+
 
 const Menu = () => {
     return (
         <>
-            <SelectMain/>
+            <MenuPage/>
         </>
      );
 }
