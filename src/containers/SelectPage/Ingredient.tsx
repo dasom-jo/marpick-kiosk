@@ -1,9 +1,20 @@
+import Vegetable from "./Vegetable";
 import "./SelectMenu.scss"
-//재료 선텍 컴포넌트입니다
+import Meat from "./Meat";
+import Other from "./Other";
+import IngredientBtn from "@/components/ingredientBtn/IngredientBtn";
+import { useRecoilValue } from "recoil";
+import { ingredientNumber } from "@/recoil/atoms/atoms";
+
 const Ingredient = () => {
+    const pageNumber = useRecoilValue(ingredientNumber)
+
     return (
         <div className="DefaultBox">
-            재료단계입니다
+            <IngredientBtn />
+            {pageNumber === 1 && <Vegetable/>}
+            {pageNumber === 2 && <Meat/>}
+            {pageNumber === 3 && <Other/>}
         </div>
      );
 }

@@ -5,8 +5,8 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import LocationBtn from '@/components/locationBtn/LocationBtn';
 import Location from '@/components/location/Location';
 import Ingredient from './Ingredient';
-import Taste from './taste';
-import Pay from './pay';
+import Taste from './Taste';
+import Pay from './Pay';
 import { countIcon } from '@/recoil/atoms/atoms';
 import "../../app/globals.scss";
 

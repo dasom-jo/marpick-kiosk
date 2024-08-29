@@ -1,6 +1,33 @@
 .DefaultBox{
-    display: flex;
+    display: block;
     width: 768px;
-    height: 500px;
+    height: 700px;
     background-color: rgb(250, 212, 212);
+}
+.DefaultSmallBox{
+    cursor: pointer;
+    margin: 20px 10px;
+    display: flex;
+    justify-content: center;
+    width: 180px;
+    height: 220px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 3px 3px 15px gray;
+}
+.menuName{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+.menuImgBox{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.menuImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

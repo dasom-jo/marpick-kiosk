@@ -1,10 +1,11 @@
 import { countIcon } from "@/recoil/atoms/atoms";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import "./LocationBtn.scss"
+import { filterLanguage } from "@/recoil/selector/selectors";
 
 const LocationBtn = () => {
 
-
+    const translations = useRecoilValue(filterLanguage);
     const [PlusMinus, setPlusMinus] = useRecoilState(countIcon);
 
     const plusCount = () =>{
@@ -28,10 +29,10 @@ const LocationBtn = () => {
             <div
                 className="LocationBtn"
                 style={{background:'rgb(69, 3, 71)'}}
-                onClick={minusCount}>이전단계</div>
+                onClick={minusCount}>{translations["previous step"]}</div>
             <div
                 className="LocationBtn"
-                onClick={plusCount}>다음단계</div>
+                onClick={plusCount}>{translations["next step"]}</div>
         </div>
     </>
     );

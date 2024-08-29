@@ -5,13 +5,16 @@ export async function GET() {
 
         const managerPagesql = "SELECT * FROM managerpage";
         const loginSql = "SELECT * FROM login";
+        const menuSql = "SELECT * FROM menu";
 
         const managerPage = await query(connection, managerPagesql);
         const login = await query(connection, loginSql);
+        const menu = await query(connection, menuSql);
 
         const result = {
             managerPage,
-            login
+            login,
+            menu
         }
         connection.release();
         return new Response(JSON.stringify(result))
