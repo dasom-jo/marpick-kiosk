@@ -1,23 +1,37 @@
-import { colorIcon } from "@/recoil/atoms/atoms";
+import { countIcon } from "@/recoil/atoms/atoms";
 import { useRecoilState } from "recoil";
 import "./LocationBtn.scss"
 
 const LocationBtn = () => {
-    const [color, setColor] = useRecoilState(colorIcon);
 
-    const handleColorChange = (newColor: string) => {
-        setColor(newColor);
+
+    const [PlusMinus, setPlusMinus] = useRecoilState(countIcon);
+
+    const plusCount = () =>{
+        if (PlusMinus >= 0 && PlusMinus < 2) {
+            setPlusMinus(prev => prev + 1)
+        }else{
+            setPlusMinus(0);
+        }
+    }
+    const minusCount = () => {
+        if (PlusMinus > 0 && PlusMinus <= 2) {
+            setPlusMinus(prev => prev - 1)
+        }else{
+            setPlusMinus(0);
+        }
     };
+
     return (
     <>
         <div id="LocationDoubleBtn">
             <div
                 className="LocationBtn"
                 style={{background:'rgb(69, 3, 71)'}}
-                onClick={() => handleColorChange('red')}>이전단계</div>
+                onClick={minusCount}>이전단계</div>
             <div
                 className="LocationBtn"
-                onClick={() => handleColorChange('red')}>다음단계</div>
+                onClick={plusCount}>다음단계</div>
         </div>
     </>
     );

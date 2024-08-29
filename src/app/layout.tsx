@@ -11,7 +11,6 @@ import {
 
 
 
-
 export default function RootLayout({
   children,
 }: {
@@ -20,9 +19,9 @@ export default function RootLayout({
   return (
     <RecoilRoot>
       {/* atom등 상태관리 연결 */}
-    <html >
-      <body>{children}</body>
-    </html>
+      <html >
+        <body>{children}</body>
+      </html>
     </RecoilRoot>
   );
 }

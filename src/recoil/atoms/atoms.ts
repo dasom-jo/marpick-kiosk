@@ -5,8 +5,13 @@ export const eatOrGo = atom({
     default:["","",""]
 })
 
-//단계버튼을 누르면 색을 변화시키는 상태관리
-export const colorIcon = atom({
-    key:"colorIcon",
-    default:'black'
+//이전,다음단계 버튼 클릭시 현재위치 알려주는 상태관리
+export const countIcon = atom<number>({
+    key:"countIcon",
+    default:0
+})
+
+export const langChange = atom<string>({
+    key:"langChange",
+    default:'ko-KR'
 })

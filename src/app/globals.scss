@@ -1,4 +1,11 @@
+@font-face {
+    font-family: 'HSSaemaul-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 *{
     max-width: 768px;
+    font-family: 'HSSaemaul-Regular';
 }
 

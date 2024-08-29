@@ -1,18 +1,6 @@
-.icon{
+.DefaultBox{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 120px;
-
-}
-
-.icon1{
-    margin: 0px 100px;
-    font-size: 20px;
-    display: block;
-    justify-content: center;
-    align-items: center;
-}
-.taste{
-    margin-left: 15px;
+    width: 768px;
+    height: 500px;
+    background-color: rgb(250, 212, 212);
 }
