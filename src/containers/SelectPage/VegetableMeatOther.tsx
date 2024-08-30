@@ -30,9 +30,9 @@ const VegetableMeatOther  = () => {
                 console.error('Error fetching data:', error);
             }
         };
-
         fetchData();
-    }, [setData, pageNumber]);
+        setCurrentPage(1);
+    }, [ pageNumber]);
 
     const fiteredData = data.filter(item => item.language_code === filtered);
 
