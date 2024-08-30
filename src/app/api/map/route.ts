@@ -6,15 +6,21 @@ export async function GET() {
         const managerPagesql = "SELECT * FROM managerpage";
         const loginSql = "SELECT * FROM login";
         const menuSql = "SELECT * FROM menu";
+        const meatSql = "SELECT * FROM meat";
+        const otherSql = "SELECT * FROM other";
 
         const managerPage = await query(connection, managerPagesql);
         const login = await query(connection, loginSql);
         const menu = await query(connection, menuSql);
+        const meat = await query(connection, meatSql);
+        const other = await query(connection, otherSql);
 
         const result = {
             managerPage,
             login,
-            menu
+            menu,
+            meat,
+            other
         }
         connection.release();
         return new Response(JSON.stringify(result))
