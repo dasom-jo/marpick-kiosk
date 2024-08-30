@@ -1,6 +1,6 @@
 import "../../containers/SelectPage/SelectMenu.scss"
 import { useRecoilState, useRecoilValue } from "recoil";
-import {  dataState, ingredientNumber, langChange } from "@/recoil/atoms/atoms";
+import {  countIcon, dataState, ingredientNumber, langChange } from "@/recoil/atoms/atoms";
 import { useEffect, useState } from "react";
 //재료 선텍 컴포넌트입니다
 

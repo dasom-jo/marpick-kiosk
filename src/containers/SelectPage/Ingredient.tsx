@@ -1,7 +1,7 @@
 
 import "./SelectMenu.scss"
 import IngredientBtn from "@/components/ingredientBtn/IngredientBtn";
-import VegetableMeatOther from "./VegetableMeatOther";
+import VegetableMeatOther from "../../components/vegetableMeatOther/VegetableMeatOther";
 
 
 const Ingredient = () => {
