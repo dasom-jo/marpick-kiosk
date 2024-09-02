@@ -8,5 +8,9 @@ export default {
     'next step' : 'Next Step',
     "vegetable" : "Vegetable",
     'meat' : "Meat",
-    'other' : "Other"
+    'other' : "Other",
+    'Selected menu':'Selected Menu',
+    'count':'Count',
+    'amount' :'Amount',
+    'total amount':'Total Amount'
 };

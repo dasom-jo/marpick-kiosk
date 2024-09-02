@@ -1,4 +1,5 @@
 export interface menuType {
+    price: number;
     img: any;
     id:number,
     key:string,

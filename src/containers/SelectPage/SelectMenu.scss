@@ -2,7 +2,7 @@
     display: block;
     flex-wrap: wrap;
     width: 768px;
-    height: 800px;
+    height: 850px;
     background-color: rgb(250, 212, 212);
     position: relative;
 }
@@ -10,7 +10,8 @@
 .DefaultSmallBox {
     margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4열로 설정 */
+    grid-template-columns: repeat(4, 1fr);
+    cursor:pointer;
 }
 
 .DefaultSmallBox > div {
@@ -18,7 +19,7 @@
     border-radius: 10px;
     box-shadow: 1px 1px 5px gray;
     width: 180px;
-    height: 300px;
+    height: 320px;
     margin-bottom: 10px;
     margin-left: 5px;
 }
@@ -30,6 +31,7 @@
     margin-bottom: 20px;
     padding: 10px;
 }
+
 .menuImgBox{
     width: 150px;
     height: 170px;

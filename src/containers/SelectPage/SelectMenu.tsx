@@ -9,6 +9,7 @@ import Taste from './Taste';
 import Pay from './Pay';
 import { countIcon } from '@/recoil/atoms/atoms';
 import "../../app/globals.scss";
+import List from '@/components/list/List';
 
 
 const SelectMain = () => {
@@ -21,7 +22,9 @@ const SelectMain = () => {
             {pageNumber === 0 && <Ingredient/>}
             {pageNumber === 1 && <Taste/>}
             {pageNumber === 2 && <Pay/>}
+            <List/>
             <LocationBtn/>
+
         </>
     );
 }

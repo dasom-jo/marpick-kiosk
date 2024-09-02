@@ -1,16 +1,19 @@
 import "../../containers/SelectPage/SelectMenu.scss"
 import { useRecoilState, useRecoilValue } from "recoil";
-import {  countIcon, dataState, ingredientNumber, langChange } from "@/recoil/atoms/atoms";
+import {  countIcon, dataState, foodList, ingredientNumber, langChange} from "@/recoil/atoms/atoms";
 import { useEffect, useState } from "react";
+import { menuType } from "@/containers/SelectPage/type";
+import Swal from 'sweetalert2';
+import { foodType } from "../list/type";
 //재료 선텍 컴포넌트입니다
 
 const VegetableMeatOther  = () => {
-    const [data, setData] = useRecoilState(dataState);
+    const [data, setData] = useRecoilState<menuType[]>(dataState);
     const filtered = useRecoilValue(langChange);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
     const pageNumber = useRecoilValue(ingredientNumber)
-
+    const [SeletedMenu, setSeletedMenu] = useRecoilState<foodType[]>(foodList);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -27,7 +30,7 @@ const VegetableMeatOther  = () => {
                     setData(result.other);
                 }
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error(error);
             }
         };
         fetchData();
@@ -45,11 +48,27 @@ const VegetableMeatOther  = () => {
     const handlePageChange = (pageNumber:number) =>{
         setCurrentPage(pageNumber)
     }
+    useEffect(() => {
+        console.log('상태가 변경된 후의 데이터', SeletedMenu);
+    }, [SeletedMenu])
+
+    const Modal = (filteredItem:any)=>{
+        setSeletedMenu(filteredItem)
+        Swal.fire({
+        position: "center",
+        title: `"${filteredItem.translation}"이(가) 추가되었습니다`,
+        showConfirmButton: false,
+        timer: 1000,
+        width:'500px'
+    });
+    }
+
+
     return (
         <div >
             <div className="DefaultSmallBox">
                 {currentItems.map(filteredItem => (
-                    <div key={filteredItem.id}>
+                    <div key={filteredItem.id} onClick={()=>Modal(filteredItem)}>
                         <div className="menuImgBox">
                             <img className="menuImg"
                                 src={filteredItem.img}
@@ -57,8 +76,10 @@ const VegetableMeatOther  = () => {
                             />
                         </div>
                         <div className="menuName">
-                            {filteredItem.translation}
+                            {filteredItem.translation}<br/>
+                            {filteredItem.price} ₩
                         </div>
+
                     </div>
                 ))}
             </div>
