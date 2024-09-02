@@ -1,10 +1,10 @@
 .ListBox{
-    width: 768px;
+    width: 763px;
     height: 300px;
 }
 
 .ListName{
-    width: 768px;
+    width: 763px;
     height: 40px;
     background-color: rgb(238, 238, 238);
     display: inline-flex;
@@ -17,7 +17,7 @@
 }
 
 .ListPrint {
-    width: 768px;
+    width: 760px;
     height: 200px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
@@ -37,10 +37,39 @@
         background-color: #555; // 스크롤바에 마우스를 올렸을 때의 색상
     }
 }
-
+.ListItem{
+    display: flex;
+    justify-content:  space-between;
+    align-items: center;
+    margin: 5px 5px;
+    font-size: 20px;
+}
+.ListItem1{
+    width: 170px;
+    display: flex;
+    justify-content: center;
+    margin-right: 75px;
+}
+.ListItem2{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+.ListItem3{
+    width: 170px;
+    display: flex;
+    justify-content: center;
+}
+.ListItem4{
+    display: flex;
+    align-items: center;
+    color: red;
+    cursor: pointer;
+    margin-left: 5px;
+}
 
 .ListSum{
-    width: 768px;
+    width: 763px;
     height: 40px;
     background-color: rgb(250, 212, 212);
     display: inline-flex;

@@ -48,21 +48,39 @@ const VegetableMeatOther  = () => {
     const handlePageChange = (pageNumber:number) =>{
         setCurrentPage(pageNumber)
     }
-    useEffect(() => {
-        console.log('상태가 변경된 후의 데이터', SeletedMenu);
-    }, [SeletedMenu])
 
-    const Modal = (filteredItem:any)=>{
-        setSeletedMenu(filteredItem)
-        Swal.fire({
-        position: "center",
-        title: `"${filteredItem.translation}"이(가) 추가되었습니다`,
-        showConfirmButton: false,
-        timer: 1000,
-        width:'500px'
-    });
-    }
+    const Modal = (filteredItem: any) => {
+        setSeletedMenu(prevMenuList => {
+            // 이전 목록에 filteredItem이 있는지 확인
+            const isItemAlreadyAdded = prevMenuList.some(item => item.id === filteredItem.id);
 
+            if (!isItemAlreadyAdded) {
+                // 아이템이 목록에 없는 경우 추가
+                Swal.fire({
+                    position: "center",
+                    title: `"${filteredItem.translation}"이(가) 추가되었습니다`,
+                    showConfirmButton: false,
+                    timer: 1000,
+                    width: '500px'
+                });
+
+                return [...prevMenuList, filteredItem];
+            } else {
+                // 아이템이 목록에 이미 있는 경우 알림
+                Swal.fire({
+                    position: "center",
+                    title: `"${filteredItem.translation}"이(가) 이미 추가된 상품입니다`,
+                    showConfirmButton: false,
+                    color: 'red',
+                    timer: 1500,
+                    width: '500px'
+                });
+
+                // 상태를 변경하지 않음 (이전 목록을 그대로 반환)
+                return prevMenuList;
+            }
+        });
+    };
 
     return (
         <div >

@@ -1,5 +1,8 @@
 export interface foodType {
-    menu:string;
-    count:number;
-    sum:number;
+    id:any;
+    price: number;
+    translation: string;
+}
+export interface FoodDictionary {
+    [key: string]: foodType;
 }
