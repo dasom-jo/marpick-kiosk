@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import "./List.scss";
 import { filterLanguage } from "@/recoil/selector/selectors";
-import { foodList } from "@/recoil/atoms/atoms";
+import { foodList, tasteList } from "@/recoil/atoms/atoms";
 import ClearIcon from '@mui/icons-material/Clear';
 import { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
@@ -13,7 +13,7 @@ const List = () => {
     const menuList = useRecoilValue(foodList);
     const [counts, setCounts] = useState<{ [id: string]: number }>({});
     const [filteredList,setFilteredList] = useRecoilState(foodList);
-
+    const seletedList = useRecoilValue(tasteList)
 
     const addIcon = (id: number) => {
         setCounts(prevCounts => ({
@@ -29,7 +29,10 @@ const List = () => {
         }));
     };
 
-    const getItemPrice = (price: string, count: number) => {
+    const getItemPrice = (price: string , count: number) => {
+        if (price === null) {
+            return 0;  // 맛 선택시 맛은 가격이 없음
+        }
         const numericPrice = parseFloat(price.replace(/,/g, '')) || 0;
         return numericPrice * count;
     };
@@ -41,10 +44,16 @@ const List = () => {
             return total + getItemPrice(itemPrice, itemCount);
         }, 0);
     };
-    
+
     const handleLocal = (id: number) => {
         const filterList = menuList.filter(item => item.id !== id)
         setFilteredList(filterList)
+
+        setCounts(prevCounts => {
+            const newCounts = { ...prevCounts };
+            delete newCounts[id];
+            return newCounts;
+        });
     };
 
 
@@ -87,10 +96,13 @@ const List = () => {
                     );
                 })}
             </div>
-
+            <div className="seletedList">
+                [맛] {seletedList}
+            </div>
             <div className="ListSum">
                 {translations["total amount"]} : {getTotalPrice()} ₩
             </div>
+
         </div>
     );
 };

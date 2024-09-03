@@ -37,3 +37,8 @@ export const foodList = atom<foodType[]>({
     key: 'foodList',
     default: [],
 });
+
+export const tasteList = atom<string>({
+    key: 'tasteList',
+    default: "맛단계에서 선택가능합니다",
+});
