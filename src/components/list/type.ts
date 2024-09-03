@@ -1,6 +1,6 @@
 export interface foodType {
     id:any;
-    price: number;
+    price: any;
     translation: string;
 }
 export interface FoodDictionary {

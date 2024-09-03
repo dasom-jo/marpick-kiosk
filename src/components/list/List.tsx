@@ -1,5 +1,5 @@
-import { useRecoilValue } from "recoil";
-import "./List.scss"
+import { useRecoilState, useRecoilValue } from "recoil";
+import "./List.scss";
 import { filterLanguage } from "@/recoil/selector/selectors";
 import { foodList } from "@/recoil/atoms/atoms";
 import ClearIcon from '@mui/icons-material/Clear';
@@ -7,46 +7,46 @@ import { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { foodType } from "./type";
+
 const List = () => {
     const translations = useRecoilValue(filterLanguage);
-    const menuList = useRecoilValue(foodList)
+    const menuList = useRecoilValue(foodList);
+    const [counts, setCounts] = useState<{ [id: string]: number }>({});
+    const [filteredList,setFilteredList] = useRecoilState(foodList);
 
-    const [counts, setCounts] =  useState<{ [id: string]: number }>({});
-
-    useEffect(() => {
-
-        const initialCounts = menuList.reduce((acc: { [key: string]: number }, item: foodType) => {
-            acc[item.id] = 1;
-            return acc;
-        }, {});
-        setCounts(initialCounts);
-    }, [menuList]);
 
     const addIcon = (id: number) => {
         setCounts(prevCounts => ({
             ...prevCounts,
-            [id]: Math.min(prevCounts[id] + 1, 10)
+            [id]: Math.min((prevCounts[id] || 0) + 1, 10)
         }));
     };
 
     const removeIcon = (id: number) => {
         setCounts(prevCounts => ({
             ...prevCounts,
-            [id]: Math.max(prevCounts[id] - 1, 1)
+            [id]: Math.max((prevCounts[id] || 1) - 1, 1)
         }));
     };
 
-    const totalPrice = () => {
-        return menuList.reduce((total, item) => {
-            const quantity = counts[item.id] || 1; // 수량 가져오기, 기본값 1
-            const price = item.price ; // 가격이 없을 경우 기본값 0
-            console.log(quantity);
-            console.log(price);
-            console.log(total);
-            return total + (price * quantity); // 전체 가격 누적
+    const getItemPrice = (price: string, count: number) => {
+        const numericPrice = parseFloat(price.replace(/,/g, '')) || 0;
+        return numericPrice * count;
+    };
 
+    const getTotalPrice = () => {
+        return menuList.reduce((total, item) => {
+            const itemCount = counts[item.id] || 1;
+            const itemPrice = item.price;
+            return total + getItemPrice(itemPrice, itemCount);
         }, 0);
     };
+    
+    const handleLocal = (id: number) => {
+        const filterList = menuList.filter(item => item.id !== id)
+        setFilteredList(filterList)
+    };
+
 
     return (
         <div className="ListBox">
@@ -63,28 +63,33 @@ const List = () => {
             </div>
 
             <div className="ListPrint">
-                { Array.isArray(menuList) && menuList.map((item:foodType) => (
-                    <div key={item.id} className="ListItem">
-                        <div className="ListItem1">
-                            {item.translation}
-                        </div>
-                        <div className="ListItem2">
-                            <div>{counts[item.id]}</div>
-                            <AddIcon onClick={() => addIcon(item.id)} />
-                            <RemoveIcon onClick={() => removeIcon(item.id)} />
-                        </div>
-                        <div className="ListItem3">
-                            {totalPrice} ₩
-                            <div className="ListItem4">
-                                <ClearIcon />
+                {Array.isArray(menuList) && menuList.map((item: foodType) => {
+                    const itemCount = counts[item.id] || 1;
+                    return (
+                        <div key={item.id} className="ListItem">
+                            <div className="ListItem1">
+                                {item.translation}
+                            </div>
+                            <div className="ListItem2">
+                                <div>{itemCount}</div>
+                                <AddIcon onClick={() => addIcon(item.id)} />
+                                <RemoveIcon onClick={() => removeIcon(item.id)} />
+                            </div>
+                            <div className="ListItem3">
+                                {getItemPrice(item.price, itemCount)} ₩
+                                <div
+                                    onClick={()=>handleLocal(item.id)}
+                                    className="ListItem4">
+                                    <ClearIcon />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             <div className="ListSum">
-                {translations["total amount"]} :
+                {translations["total amount"]} : {getTotalPrice()} ₩
             </div>
         </div>
     );
