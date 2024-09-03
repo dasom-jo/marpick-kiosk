@@ -37,8 +37,13 @@ export const foodList = atom<foodType[]>({
     key: 'foodList',
     default: [],
 });
-
+//맛 선택 상태관리
 export const tasteList = atom<string>({
     key: 'tasteList',
     default: "맛단계에서 선택가능합니다",
+});
+//총금액 상태관리
+export const totalPay = atom<string>({
+    key: 'totalPay',
+    default: "",
 });

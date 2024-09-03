@@ -61,7 +61,8 @@ const VegetableMeatOther  = () => {
                     title: `"${filteredItem.translation}"이(가) 추가되었습니다`,
                     showConfirmButton: false,
                     timer: 1000,
-                    width: '500px'
+                    width: '500px',
+                    backdrop: `rgba(0,0,0,0)`,
                 });
 
                 return [...prevMenuList, filteredItem];
@@ -73,7 +74,8 @@ const VegetableMeatOther  = () => {
                     showConfirmButton: false,
                     color: 'red',
                     timer: 1500,
-                    width: '500px'
+                    width: '500px',
+                    backdrop: `rgba(0,0,0,0)`,
                 });
 
                 // 상태를 변경하지 않음 (이전 목록을 그대로 반환)

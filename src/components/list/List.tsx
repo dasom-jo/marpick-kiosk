@@ -1,7 +1,7 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import "./List.scss";
 import { filterLanguage } from "@/recoil/selector/selectors";
-import { foodList, tasteList } from "@/recoil/atoms/atoms";
+import { eatOrGo, foodList, tasteList, totalPay } from "@/recoil/atoms/atoms";
 import ClearIcon from '@mui/icons-material/Clear';
 import { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
@@ -14,6 +14,8 @@ const List = () => {
     const [counts, setCounts] = useState<{ [id: string]: number }>({});
     const [filteredList,setFilteredList] = useRecoilState(foodList);
     const seletedList = useRecoilValue(tasteList)
+    const takeOut = useRecoilValue(eatOrGo)
+    const [sumPay, setSumPay] = useRecoilState(totalPay);
 
     const addIcon = (id: number) => {
         setCounts(prevCounts => ({
@@ -30,20 +32,28 @@ const List = () => {
     };
 
     const getItemPrice = (price: string , count: number) => {
-        if (price === null) {
-            return 0;  // 맛 선택시 맛은 가격이 없음
-        }
         const numericPrice = parseFloat(price.replace(/,/g, '')) || 0;
         return numericPrice * count;
     };
 
     const getTotalPrice = () => {
-        return menuList.reduce((total, item) => {
-            const itemCount = counts[item.id] || 1;
-            const itemPrice = item.price;
-            return total + getItemPrice(itemPrice, itemCount);
-        }, 0);
+        if (menuList) {
+            // reduce로 총 가격 계산
+            const total = menuList.reduce((total, item) => {
+                const itemCount = counts[item.id] || 1;
+                const itemPrice = item.price;
+                return total + getItemPrice(itemPrice, itemCount);
+            }, 0);
+
+            // 상태 업데이트
+            setSumPay(total.toString());
+        }
     };
+
+    // menuList 또는 counts가 변경될 때마다 총 가격을 계산
+    useEffect(() => {
+        getTotalPrice();
+    }, [menuList, counts]);
 
     const handleLocal = (id: number) => {
         const filterList = menuList.filter(item => item.id !== id)
@@ -97,10 +107,11 @@ const List = () => {
                 })}
             </div>
             <div className="seletedList">
-                [맛] {seletedList}
+                [맛] : {seletedList} /
+                [포장] : {takeOut}
             </div>
             <div className="ListSum">
-                {translations["total amount"]} : {getTotalPrice()} ₩
+                {translations["total amount"]} : {sumPay} ₩
             </div>
 
         </div>

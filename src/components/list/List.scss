@@ -18,7 +18,7 @@
 
 .ListPrint {
     width: 760px;
-    height: 200px;
+    height: 170px;
     overflow-y: scroll;
     &::-webkit-scrollbar {
         width: 5px; // 스크롤바의 너비
@@ -43,6 +43,7 @@
     align-items: center;
     margin: 5px 5px;
     font-size: 20px;
+
 }
 .ListItem1{
     width: 170px;
@@ -76,11 +77,13 @@
     justify-content: center;
     font-size: 30px;
     align-items: center;
-
 }
 
 .seletedList{
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 25px;
+    height: 60px;
+    background-color: rgb(158, 157, 157);
 }

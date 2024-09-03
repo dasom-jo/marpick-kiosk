@@ -21,8 +21,8 @@ const SelectMain = () => {
             <Location/>
             {pageNumber === 0 && <Ingredient/>}
             {pageNumber === 1 && <Taste/>}
-            {pageNumber === 2 && <Pay/>}
             <List/>
+            {pageNumber === 2 && <Pay/>}
             <LocationBtn/>
 
         </>

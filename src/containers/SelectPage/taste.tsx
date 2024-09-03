@@ -2,7 +2,7 @@ import "./SelectMenu.scss";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { dataState, foodList, langChange, tasteList } from "@/recoil/atoms/atoms";
 import { useEffect } from "react";
-
+import Swal from 'sweetalert2';
 const Taste = () => {
     const [data, setData] = useRecoilState(dataState);
     const filtered = useRecoilValue(langChange);
@@ -24,7 +24,14 @@ const Taste = () => {
     const fiteredData = data.filter(item => item.language_code === filtered);
 
     const handleTaste = (item:any) => {
-        setSelectedTaste(item.translation); 
+        setSelectedTaste(item.translation);
+        Swal.fire({
+            position: "center",
+            title: `"${item.translation}"이(가) 선택되었습니다`,
+            showConfirmButton: false,
+            timer: 1000,
+            width: '500px'
+        });
     }
 
     return (
