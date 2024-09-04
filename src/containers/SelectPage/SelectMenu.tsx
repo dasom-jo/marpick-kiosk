@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import Header from "@/components/header/Header";
 import { useRecoilState, useRecoilValue } from "recoil";
 import LocationBtn from '@/components/locationBtn/LocationBtn';
 import Location from '@/components/location/Location';
@@ -17,7 +16,6 @@ const SelectMain = () => {
 
     return (
         <>
-            <Header />
             <Location/>
             {pageNumber === 0 && <Ingredient/>}
             {pageNumber === 1 && <Taste/>}

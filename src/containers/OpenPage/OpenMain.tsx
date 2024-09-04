@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { useRecoilState, useRecoilValue } from "recoil";
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import FlatwareIcon from '@mui/icons-material/Flatware';
-import Header from "@/components/header/Header";
 import "../OpenPage/OpenMain.scss"
 import "../../app/globals.scss";
 import { filterLanguage } from "@/recoil/selector/selectors";
@@ -37,7 +36,6 @@ const OpenMain = () => {
     }
     return (
         <>
-            <Header/>
             <div className="ClickBtn">
                 <div id="TakeOut" onClick={handleTakeOut}>
                     <div className="Icon" >

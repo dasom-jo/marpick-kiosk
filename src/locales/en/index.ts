@@ -12,5 +12,13 @@ export default {
     'Selected menu':'Selected Menu',
     'count':'Count',
     'amount' :'Amount',
-    'total amount':'Total Amount'
+    'total amount':'Total Amount',
+    'selectmodalment': 'has been added',
+    'selectedmodalment': 'has already been added',
+    'onlycard' :'Only card payment is possible',
+    'success':"Payment has been completed successfully",
+    'Complete payment':"Complete payment",
+    'Payment failed' :'Payment failed',
+    "again":"Please try again from the beginning.",
+    "back" : 'back to beginning'
 };

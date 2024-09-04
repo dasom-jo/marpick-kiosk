@@ -12,5 +12,13 @@ export default {
     'Selected menu':'선택한 메뉴',
     'count': '개수',
     'amount' : '금액',
-    'total amount':'총액'
+    'total amount':'총액',
+    'selectmodalment': '이(가) 추가되었습니다',
+    'selectedmodalment': '이(가) 이미 추가되었습니다',
+    'onlycard' :'카드결제만 가능합니다',
+    'success':"결제가 정상적으로 완료되었습니다",
+    'Complete payment':"결제 완료하기",
+    'Payment failed':'결제가 실패하였습니다',
+    "again":"처음부터 다시해주시길 바랍니다",
+    'back':"처음으로 돌아가기"
 };

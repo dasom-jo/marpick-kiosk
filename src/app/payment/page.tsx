@@ -1,10 +1,12 @@
-
+"use client";
 import { useRouter } from 'next/navigation';
-import "./payment.scss"
-import Header from '@/components/header/Header';
+import './payment.scss';
+import { useRecoilValue } from 'recoil';
+import { filterLanguage } from '@/recoil/selector/selectors';
 
 const PaymentPage = () => {
     const router = useRouter();
+    const translations = useRecoilValue(filterLanguage);
 
     const handlePayment = async () => {
         try {
@@ -32,17 +34,18 @@ const PaymentPage = () => {
 
     return (
         <div>
-            <Header />
-            <div >
+
+            <div>
                 <div className='paymentBox'>
-                    <h2 id='paymentTitle' >결제가 정상적으로 완료되었습니다.</h2>
+                    <h2 id='paymentTitle'>{translations.success}</h2>
                 </div>
                 <div className='paymentBox'>
-                    <button id='paymentBtn' onClick={handlePayment}>결제 완료하기</button>
+                    <button id='paymentBtn' onClick={handlePayment}>
+                        {translations['Complete payment']}
+                    </button>
                 </div>
             </div>
         </div>
-
     );
 };
 

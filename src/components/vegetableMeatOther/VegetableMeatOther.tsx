@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { menuType } from "@/containers/SelectPage/type";
 import Swal from 'sweetalert2';
 import { foodType } from "../list/type";
+import { filterLanguage } from "@/recoil/selector/selectors";
 //재료 선텍 컴포넌트입니다
 
 const VegetableMeatOther  = () => {
@@ -14,6 +15,7 @@ const VegetableMeatOther  = () => {
     const itemsPerPage = 8;
     const pageNumber = useRecoilValue(ingredientNumber)
     const [SeletedMenu, setSeletedMenu] = useRecoilState<foodType[]>(foodList);
+    const translations = useRecoilValue(filterLanguage);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -58,7 +60,7 @@ const VegetableMeatOther  = () => {
                 // 아이템이 목록에 없는 경우 추가
                 Swal.fire({
                     position: "center",
-                    title: `"${filteredItem.translation}"이(가) 추가되었습니다`,
+                    title: `"${filteredItem.translation}"${translations.selectmodalment}`,
                     showConfirmButton: false,
                     timer: 1000,
                     width: '500px',
@@ -70,7 +72,7 @@ const VegetableMeatOther  = () => {
                 // 아이템이 목록에 이미 있는 경우 알림
                 Swal.fire({
                     position: "center",
-                    title: `"${filteredItem.translation}"이(가) 이미 추가된 상품입니다`,
+                    title: `"${filteredItem.translation}"${translations.selectedmodalment}`,
                     showConfirmButton: false,
                     color: 'red',
                     timer: 1500,

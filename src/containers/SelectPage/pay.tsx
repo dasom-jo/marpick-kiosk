@@ -5,9 +5,10 @@ import "./Pay.scss";
 import { loadTossPayments } from "@tosspayments/payment-sdk";
 import { useRecoilValue } from 'recoil';
 import { totalPay } from '@/recoil/atoms/atoms';
+import { filterLanguage } from '@/recoil/selector/selectors';
 
 const Pay = () => {
-
+    const translations = useRecoilValue(filterLanguage);
     const sumPay = useRecoilValue(totalPay)
     const handleToss = async () => {
         const tossClientKey = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY || ''; // 기본값으로 빈 문자열 설정
@@ -30,7 +31,7 @@ const Pay = () => {
 
     return (
         <>
-            <p className='imgText'>카드거래만 가능합니다</p>
+            <p className='imgText'>{translations.onlycard}</p>
             <div className="imgBox">
                 <Image
                     className="imgSmallBox"

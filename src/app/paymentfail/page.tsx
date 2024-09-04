@@ -1,11 +1,12 @@
-
+"use client";
 import { useRouter } from 'next/navigation';
-import "./payment.scss"
-import Header from '@/components/header/Header';
+import "../payment/payment.scss"
+import { useRecoilValue } from 'recoil';
+import { filterLanguage } from '@/recoil/selector/selectors';
 
 const PaymentPage = () => {
     const router = useRouter();
-
+    const translations = useRecoilValue(filterLanguage);
     const handlePayment = async () => {
         try {
             const res = await fetch('/api/complete', {
@@ -32,16 +33,15 @@ const PaymentPage = () => {
 
     return (
         <div>
-            <Header />
             <div >
                 <div className='paymentBox'>
-                    <h1 id='paymentTitle' >결제가 실패하였습니다.</h1>
+                    <h1 id='paymentTitle' >{translations['Payment failed']}</h1>
                 </div>
                 <div>
-                    <h2 id='paymentTitle2'>처음부터 다시 해주시길 바랍니다</h2>
+                    <h2 id='paymentTitle2'>{translations.again}</h2>
                 </div>
                 <div className='paymentBox'>
-                    <button id='paymentBtn' onClick={handlePayment}>처음으로 돌아가기</button>
+                    <button id='paymentBtn' onClick={handlePayment}>{translations.back}</button>
                 </div>
             </div>
         </div>

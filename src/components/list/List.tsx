@@ -107,13 +107,12 @@ const List = () => {
                 })}
             </div>
             <div className="seletedList">
-                [맛] : {seletedList} /
-                [포장] : {takeOut}
+                [{translations.taste}]: {seletedList} /
+                [{translations.takeOut}] : {takeOut}
             </div>
             <div className="ListSum">
                 {translations["total amount"]} : {sumPay} ₩
             </div>
-
         </div>
     );
 };

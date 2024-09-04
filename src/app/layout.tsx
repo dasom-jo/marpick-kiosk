@@ -1,14 +1,7 @@
 "use client";
-import Header from '@/components/header/Header';
 import React from 'react';
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from 'recoil';
-
+import { RecoilRoot } from 'recoil';
+import Header from '@/components/header/Header';
 
 
 export default function RootLayout({
@@ -17,16 +10,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <RecoilRoot>
-      {/* atom등 상태관리 연결 */}
-      <html >
-        <body>{children}</body>
-      </html>
-    </RecoilRoot>
+    <html >
+      <body>
+        <RecoilRoot>
+          <Header />
+          <main>{children}</main>
+        </RecoilRoot>
+      </body>
+    </html>
   );
 }
-
-
-
-
-
