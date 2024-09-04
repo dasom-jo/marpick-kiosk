@@ -23,9 +23,9 @@ export function getConnection(): Promise<PoolConnection> {
 }
 
 // 쿼리 함수의 제네릭을 설정하여 배열과 객체를 모두 지원
-export function query<T>(connection: PoolConnection, sql: string): Promise<T> {
+export function query<T>(connection: PoolConnection, sql: string, params: any[]): Promise<T[]> {
   return new Promise((resolve, reject) => {
-    connection.query(sql, (error: MysqlError | null, results: T) => {
+    connection.query(sql, params, (error: MysqlError | null, results: T[]) => {
       if (error) return reject(error);
       return resolve(results);
     });

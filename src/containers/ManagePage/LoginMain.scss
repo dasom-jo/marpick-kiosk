@@ -1,0 +1,31 @@
+.loginBox{
+    background-color: gray;
+    margin:100px auto;
+    width: 500px;
+    height: 300px;
+}
+#loginText{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 80px;
+    font-size: 30px;
+}
+#loginInput{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    margin: 10px;
+}
+.loginBtn{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+
+}
+#loginBtn1{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+}

@@ -60,3 +60,22 @@
     border-radius: 10px;
 
 }
+
+#manageBtn{
+    width: 730px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    font-size: 30px;
+
+}
+
+#manageText{
+    display: inline-flex;
+    background-color: rgb(185, 185, 185);
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}

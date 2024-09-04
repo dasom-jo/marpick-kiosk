@@ -32,8 +32,11 @@ const OpenMain = () => {
 
     const onChangeLang =(newLanguage:string)=>{
         setChangeKR(newLanguage)
-        console.log(changeKR);
     }
+    const moveLogin = () =>{
+        router.push("/managelogin")
+    }
+
     return (
         <>
             <div className="ClickBtn">
@@ -60,6 +63,7 @@ const OpenMain = () => {
                     </div>
                 </div>
             </div>
+            <div>
             {changeKR === 'ko-KR'?
             <div id="ChangeBox">
             <div
@@ -73,9 +77,14 @@ const OpenMain = () => {
                 id="ChangeLanguage"
                 onClick={()=>onChangeLang('ko-KR')}
                 >한국어</div>
-        </div>
+            </div>
             }
-
+            </div>
+            <div id='manageBtn'>
+                <div id='manageText' onClick={moveLogin}>
+                    관리자페이지
+                </div>
+            </div>
         </>
     );
 }
