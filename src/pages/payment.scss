@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'HSSaemaul-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    max-width: 763px;
+    font-family: 'HSSaemaul-Regular';
+}
+
+
+
+.paymentBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#paymentTitle{
+    font-size: 50px;
+}
+#paymentTitle2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+#paymentBtn{
+    padding: 20px;
+    font-size: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+#paymentBtn:active{
+    padding: 15px;
+    font-size: 35px;
+    background-color: black;
+    color: white;
+}
