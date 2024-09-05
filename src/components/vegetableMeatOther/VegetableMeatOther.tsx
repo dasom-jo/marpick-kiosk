@@ -1,45 +1,47 @@
 import "../../containers/SelectPage/SelectMenu.scss"
 import { useRecoilState, useRecoilValue } from "recoil";
-import { dataState, foodList, ingredientNumber, langChange} from "@/recoil/atoms/atoms";
+import {  foodList, ingredientNumber, langChange} from "@/recoil/atoms/atoms";
 import { useEffect, useState } from "react";
 import { menuType } from "@/containers/SelectPage/type";
 import Swal from 'sweetalert2';
 import { foodType } from "../list/type";
-import { filterLanguage } from "@/recoil/selector/selectors";
+import { dataState, filterLanguage } from "@/recoil/selector/selectors";
 //재료 선텍 컴포넌트입니다
 
 const VegetableMeatOther  = () => {
-    const [data, setData] = useRecoilState<menuType[]>(dataState);
+    // const [data, setData] = useRecoilState<menuType[]>(dataState);
     const filtered = useRecoilValue(langChange);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
     const pageNumber = useRecoilValue(ingredientNumber)
     const [SeletedMenu, setSeletedMenu] = useRecoilState<foodType[]>(foodList);
     const translations = useRecoilValue(filterLanguage);
+    const allData = useRecoilValue(dataState)
+    const [data, setData] = useState<menuType[]>([]);
+
+
     useEffect(() => {
-        const fetchData = async () => {
             try {
-                const response = await fetch('/api/map');
-                const result = await response.json();
                 //채소페이지
                 if (pageNumber === 1) {
-                    setData(result.menu);
+                    setData(allData.menu);
                     //고기페이지
                 } else if (pageNumber === 2) {
-                    setData(result.meat);
+                    setData(allData.meat);
                     //기타 페이지
                 } else if (pageNumber === 3) {
-                    setData(result.other);
+                    setData(allData.other);
                 }
             } catch (error) {
                 console.error(error);
             }
-        };
-        fetchData();
         setCurrentPage(1);
     }, [ pageNumber]);
 
-    const filteredData = data.filter(item => item.language_code === filtered);
+    const filteredData = Array.isArray(data)
+    ? data.filter((item:menuType) => item.language_code === filtered)
+    : [];
+
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;

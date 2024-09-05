@@ -1,28 +1,29 @@
 import "./SelectMenu.scss";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { dataState, foodList, langChange, tasteList } from "@/recoil/atoms/atoms";
-import { useEffect } from "react";
+import {  foodList, langChange, tasteList } from "@/recoil/atoms/atoms";
+import { useEffect, useState } from "react";
 import Swal from 'sweetalert2';
-import { filterLanguage } from "@/recoil/selector/selectors";
+import { dataState, filterLanguage } from "@/recoil/selector/selectors";
+import { menuType } from "./type";
 const Taste = () => {
-    const [data, setData] = useRecoilState(dataState);
+    const allData = useRecoilValue(dataState)
+    const [data, setData] = useState<menuType[]>([]);
     const filtered = useRecoilValue(langChange);
     const [selectedTaste, setSelectedTaste] = useRecoilState(tasteList);
     const translations = useRecoilValue(filterLanguage);
+
     useEffect(() => {
-        const fetchData = async () => {
             try {
-                const response = await fetch('/api/map');
-                const result = await response.json();
-                setData(result.taste);
+                setData(allData.taste);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
-        };
-        fetchData();
     }, [setData]);
 
-    const filteredData = data.filter(item => item.language_code === filtered);
+    const filteredData = Array.isArray(data)
+    ? data.filter((item:menuType) => item.language_code === filtered)
+    : [];
+
 
     const handleTaste = (item:any) => {
         setSelectedTaste(item.translation);

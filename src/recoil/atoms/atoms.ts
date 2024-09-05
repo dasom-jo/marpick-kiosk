@@ -23,11 +23,11 @@ export const langChange = atom<string>({
     default:storedLang
 })
 
-//db menu 데이터
-export const dataState = atom<menuType[]>({
-    key: 'dataState',
-    default: [],
-});
+// //db menu 데이터
+// export const dataState = atom<menuType[]>({
+//     key: 'dataState',
+//     default: [],
+// });
 
 //재료 페이지 전환 상태관리
 export const ingredientNumber = atom<number>({
