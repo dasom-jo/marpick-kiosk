@@ -39,13 +39,13 @@ const VegetableMeatOther  = () => {
         setCurrentPage(1);
     }, [ pageNumber]);
 
-    const fiteredData = data.filter(item => item.language_code === filtered);
+    const filteredData = data.filter(item => item.language_code === filtered);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    const currentItems = fiteredData.slice(indexOfFirstItem,indexOfLastItem)
+    const currentItems = filteredData.slice(indexOfFirstItem,indexOfLastItem)
 
-    const totalPages = Math.ceil(fiteredData.length / itemsPerPage)
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage)
 
     const handlePageChange = (pageNumber:number) =>{
         setCurrentPage(pageNumber)

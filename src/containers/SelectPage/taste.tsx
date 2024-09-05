@@ -22,7 +22,7 @@ const Taste = () => {
         fetchData();
     }, [setData]);
 
-    const fiteredData = data.filter(item => item.language_code === filtered);
+    const filteredData = data.filter(item => item.language_code === filtered);
 
     const handleTaste = (item:any) => {
         setSelectedTaste(item.translation);
@@ -38,7 +38,7 @@ const Taste = () => {
     return (
         <div className="DefaultBox">
             <div className="DefaultSmallBox">
-                {fiteredData.map(filteredItem => (
+                {filteredData.map(filteredItem => (
                     <div key={filteredItem.id}
                         style={{ marginTop: "50px", marginLeft: '50px' }}
                         onClick={() => handleTaste(filteredItem)}
