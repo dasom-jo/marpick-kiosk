@@ -6,10 +6,9 @@ import { menuType } from "@/containers/SelectPage/type";
 import Swal from 'sweetalert2';
 import { foodType } from "../list/type";
 import { dataState, filterLanguage } from "@/recoil/selector/selectors";
-//재료 선텍 컴포넌트입니다
+//재료 선택 컴포넌트입니다
 
 const VegetableMeatOther  = () => {
-    // const [data, setData] = useRecoilState<menuType[]>(dataState);
     const filtered = useRecoilValue(langChange);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
