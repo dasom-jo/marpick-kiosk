@@ -26,7 +26,7 @@ const IngredientBtn = () => {
                 className={`IngredientBtnSmallBox ${pageNumber === 3 ? 'white' : 'black' }`}>
                 {translations.other}</div>
         </div>
-     );
+    );
 }
 
 export default IngredientBtn;

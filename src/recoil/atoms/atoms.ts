@@ -1,8 +1,7 @@
 
 import { foodType } from "@/components/list/type";
-import { menuType } from "@/containers/SelectPage/type";
-import { atom, useRecoilValue } from "recoil";
-import { filterLanguage } from "../selector/selectors";
+import { atom } from "recoil";
+
 
 //포장유무 상태관리
 export const eatOrGo = atom({
@@ -33,11 +32,13 @@ export const foodList = atom<foodType[]>({
     key: 'foodList',
     default: [],
 });
+
 //맛 선택 상태관리
 export const tasteList = atom<string>({
     key: 'tasteList',
     default: "",
 });
+
 //총금액 상태관리
 export const totalPay = atom<string>({
     key: 'totalPay',

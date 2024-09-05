@@ -10,9 +10,9 @@ import { filterLanguage } from '@/recoil/selector/selectors';
 const Pay = () => {
     const translations = useRecoilValue(filterLanguage);
     const sumPay = useRecoilValue(totalPay)
-    
+
     const handleToss = async () => {
-        const tossClientKey = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY || ''; // 기본값으로 빈 문자열 설정
+        const tossClientKey = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY || ''; 
 
         if (!tossClientKey) {
             console.error('TOSS_CLIENT_KEY is not defined');

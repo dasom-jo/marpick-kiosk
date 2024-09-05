@@ -4,12 +4,11 @@
     font-weight: normal;
     font-style: normal;
 }
+
 *{
     max-width: 763px;
     font-family: 'HSSaemaul-Regular';
 }
-
-
 
 .paymentBox{
     display: flex;
@@ -25,10 +24,10 @@
      font-size: 50px;
 }
 
-
 #paymentTitle{
     font-size: 50px;
 }
+
 #paymentTitle2{
     display: flex;
     justify-content: center;
@@ -42,6 +41,7 @@
     border-radius: 20px;
     cursor: pointer;
 }
+
 #paymentBtn:active{
     padding: 15px;
     font-size: 35px;

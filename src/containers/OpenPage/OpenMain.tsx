@@ -18,7 +18,7 @@ const OpenMain = () => {
     useEffect(()=>{
         localStorage.setItem("changeKR",changeKR)
     },[changeKR])
-//이거 고쳐야지
+
     const handleTakeOut = () =>{
         const updatedState = [...wantHere];
         updatedState[0] = "TakeOut"

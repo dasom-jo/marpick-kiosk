@@ -23,8 +23,6 @@ const PaymentPage = () => {
         setCurrentLang(savedLang);
     }, [setCurrentLang]);
 
-
-
     const handlePayment = async () => {
         try {
 

@@ -17,7 +17,6 @@ const PaymentPage = () => {
         }
     }, []);
 
-
     const handlePayment = async () => {
         try {
             const res = await fetch('/api/complete', {

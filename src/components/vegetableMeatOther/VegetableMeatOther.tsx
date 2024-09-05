@@ -18,7 +18,6 @@ const VegetableMeatOther  = () => {
     const allData = useRecoilValue(dataState)
     const [data, setData] = useState<menuType[]>([]);
 
-
     useEffect(() => {
             try {
                 //채소페이지
@@ -41,7 +40,6 @@ const VegetableMeatOther  = () => {
     ? data.filter((item:menuType) => item.language_code === filtered)
     : [];
 
-
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = filteredData.slice(indexOfFirstItem,indexOfLastItem)
@@ -54,11 +52,9 @@ const VegetableMeatOther  = () => {
 
     const Modal = (filteredItem: any) => {
         setSeletedMenu(prevMenuList => {
-            // 이전 목록에 filteredItem이 있는지 확인
             const isItemAlreadyAdded = prevMenuList.some(item => item.id === filteredItem.id);
 
             if (!isItemAlreadyAdded) {
-                // 아이템이 목록에 없는 경우 추가
                 Swal.fire({
                     position: "center",
                     title: `"${filteredItem.translation}"${translations.selectmodalment}`,
@@ -70,7 +66,6 @@ const VegetableMeatOther  = () => {
 
                 return [...prevMenuList, filteredItem];
             } else {
-                // 아이템이 목록에 이미 있는 경우 알림
                 Swal.fire({
                     position: "center",
                     title: `"${filteredItem.translation}"${translations.selectedmodalment}`,
@@ -81,7 +76,6 @@ const VegetableMeatOther  = () => {
                     backdrop: `rgba(0,0,0,0)`,
                 });
 
-                // 상태를 변경하지 않음 (이전 목록을 그대로 반환)
                 return prevMenuList;
             }
         });

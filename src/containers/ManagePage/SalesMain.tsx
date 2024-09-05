@@ -10,7 +10,7 @@ const SalesList = () => {
             try {
                 const response = await fetch('/api/map');
                 const result = await response.json();
-                setData(result.managerPage || []); // result.managerPage가 undefined일 경우 빈 배열로 초기화
+                setData(result.managerPage || []); 
             } catch (error) {
                 console.error('데이터 가져오기 오류:', error);
             }
