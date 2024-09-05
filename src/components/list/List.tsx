@@ -18,12 +18,9 @@ const List = () => {
     const takeOut = useRecoilValue(eatOrGo)
     const [sumPay, setSumPay] = useRecoilState(totalPay);
 
-    useEffect(()=>{
-        if(sumPay){
-            localStorage.setItem('sumPay',sumPay)
-            console.log('sumPay',sumPay);
-        }
-    },[sumPay])
+    useEffect(() => {
+        localStorage.setItem('sumPay', sumPay.toString());
+    }, [sumPay]);
 
     const addIcon = (id: number) => {
         setCounts(prevCounts => ({

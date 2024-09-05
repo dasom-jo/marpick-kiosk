@@ -5,11 +5,10 @@ import ko from '../../locales/ko';
 import { menuType } from "@/containers/SelectPage/type";
 //오픈페이지의 한영을 변경하는 코드
 export const filterLanguage = selector({
-    key:"filterLanguage",
-    get:({get})=>{
-        const language = get(langChange)
-
-        switch(language){
+    key: "filterLanguage",
+    get: ({ get }) => {
+        const language = get(langChange) || localStorage.getItem("changeKR") || 'ko-KR';
+        switch (language) {
             case 'en-US':
                 return en;
             case 'ko-KR':
@@ -18,7 +17,7 @@ export const filterLanguage = selector({
                 return ko;
         }
     }
-})
+});
 
 export const dataState = selector<{
         menu: menuType[],

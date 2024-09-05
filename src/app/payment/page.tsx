@@ -1,9 +1,9 @@
 "use client";
 import { useRouter } from 'next/navigation';
 import './payment.scss';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { filterLanguage } from '@/recoil/selector/selectors';
-import { totalPay } from '@/recoil/atoms/atoms';
+import { langChange, totalPay } from '@/recoil/atoms/atoms';
 import { useEffect, useState } from 'react';
 
 
@@ -11,13 +11,19 @@ const PaymentPage = () => {
     const router = useRouter();
     const translations = useRecoilValue(filterLanguage);
     const [sumPay, setSumPay] = useState<number | null>(null);
-    //여기도 한영처럼 바꾸기 
+    const [currentLang, setCurrentLang] = useRecoilState(langChange);
+
     useEffect(() => {
         const savedSumPay = localStorage.getItem('sumPay');
+        const savedLang = localStorage.getItem('changeKR') || 'ko-KR';
+
         if (savedSumPay) {
             setSumPay(parseFloat(savedSumPay));
         }
-    }, []);
+        setCurrentLang(savedLang);
+    }, [setCurrentLang]);
+
+
 
     const handlePayment = async () => {
         try {
