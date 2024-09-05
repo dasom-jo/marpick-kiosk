@@ -3,10 +3,21 @@ import { useRouter } from 'next/navigation';
 import "../payment/payment.scss"
 import { useRecoilValue } from 'recoil';
 import { filterLanguage } from '@/recoil/selector/selectors';
+import { useEffect, useState } from 'react';
 
 const PaymentPage = () => {
     const router = useRouter();
     const translations = useRecoilValue(filterLanguage);
+    const [sumPay, setSumPay] = useState<number | null>(null);
+
+    useEffect(() => {
+        const savedSumPay = localStorage.getItem('sumPay');
+        if (savedSumPay) {
+            setSumPay(parseFloat(savedSumPay));
+        }
+    }, []);
+
+
     const handlePayment = async () => {
         try {
             const res = await fetch('/api/complete', {
@@ -17,7 +28,7 @@ const PaymentPage = () => {
                 body: JSON.stringify({
                     orderId: 'adwsoo8bxx',
                     paymentKey: 'tviva20240904085616ZcNd9',
-                    amount: 1500,
+                    amount: sumPay,
                 }),
             });
 

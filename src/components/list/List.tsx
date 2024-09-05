@@ -9,6 +9,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import { foodType } from "./type";
 
 const List = () => {
+    //백엔드에 보낼것: 날짜 총액
     const translations = useRecoilValue(filterLanguage);
     const menuList = useRecoilValue(foodList);
     const [counts, setCounts] = useState<{ [id: string]: number }>({});
@@ -16,6 +17,13 @@ const List = () => {
     const seletedList = useRecoilValue(tasteList)
     const takeOut = useRecoilValue(eatOrGo)
     const [sumPay, setSumPay] = useRecoilState(totalPay);
+
+    useEffect(()=>{
+        if(sumPay){
+            localStorage.setItem('sumPay',sumPay)
+            console.log('sumPay',sumPay);
+        }
+    },[sumPay])
 
     const addIcon = (id: number) => {
         setCounts(prevCounts => ({

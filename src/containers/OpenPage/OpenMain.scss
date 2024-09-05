@@ -62,13 +62,12 @@
 }
 
 #manageBtn{
-    width: 730px;
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 50px auto;
-    font-size: 30px;
-
+    color: white;
+    cursor: pointer;
+    margin-top: 40px;
 }
 
 #manageText{

@@ -17,9 +17,10 @@ export const countIcon = atom<number>({
 })
 
 //한영변환
+const storedLang = localStorage.getItem('changeKR') || 'ko-KR';
 export const langChange = atom<string>({
     key:"langChange",
-    default:'ko-KR'
+    default:storedLang
 })
 
 //db menu 데이터

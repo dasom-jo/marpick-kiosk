@@ -7,6 +7,7 @@ import FlatwareIcon from '@mui/icons-material/Flatware';
 import "../OpenPage/OpenMain.scss"
 import "../../app/globals.scss";
 import { filterLanguage } from "@/recoil/selector/selectors";
+import { useEffect } from "react";
 
 //메뉴리스트:선택메뉴
 //마지막멘트데이터 : 결제금액,먹/포,결제방법
@@ -17,6 +18,10 @@ const OpenMain = () => {
     const [changeKR, setChangeKR] = useRecoilState(langChange);
     const translations = useRecoilValue(filterLanguage);
 
+    useEffect(()=>{
+        localStorage.setItem("changeKR",changeKR)
+    },[changeKR])
+//이거 고쳐야지
     const handleTakeOut = () =>{
         const updatedState = [...wantHere];
         updatedState[0] = "TakeOut"

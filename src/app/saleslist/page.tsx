@@ -1,7 +1,9 @@
-const SalesList = () => {
+import SalesList from "@/containers/ManagePage/SalesMain";
+
+const Page = () => {
     return ( <div>
-        매출전표입니다
+        <SalesList/>
     </div> );
 }
 
-export default SalesList;
+export default Page;
