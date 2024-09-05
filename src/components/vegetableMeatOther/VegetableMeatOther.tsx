@@ -1,6 +1,6 @@
 import "../../containers/SelectPage/SelectMenu.scss"
 import { useRecoilState, useRecoilValue } from "recoil";
-import {  countIcon, dataState, foodList, ingredientNumber, langChange} from "@/recoil/atoms/atoms";
+import { dataState, foodList, ingredientNumber, langChange} from "@/recoil/atoms/atoms";
 import { useEffect, useState } from "react";
 import { menuType } from "@/containers/SelectPage/type";
 import Swal from 'sweetalert2';

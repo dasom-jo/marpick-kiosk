@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'HSSaemaul-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'HSSaemaul-Regular';
+}
+
+.saleBox{
+    background-color: gray;
+    margin:100px auto;
+    width: 500px;
+    height: 600px;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+.saleTitle{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin: 20px;
+}
+.saleSmallBox{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 400px;
+    font-size: 30px;
+}
+.saleTotal{
+    display: inline-flex;
+    justify-content:flex-end;
+    margin: 30px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 40px;
+}
