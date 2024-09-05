@@ -9,7 +9,7 @@
 }
 
 .saleBox{
-    background-color: gray;
+    background-color:rgb(250, 212, 212);;
     margin:100px auto;
     width: 500px;
     height: 600px;
@@ -17,10 +17,16 @@
     overflow-y: scroll;
 }
 .saleTitle{
-    display: flex;
+    display: inline-flex;
+    width: 150px;
     justify-content: center;
+    align-items: center;
     font-size: 40px;
-    margin: 20px;
+    margin: 30px 50px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 .saleSmallBox{
     display: flex;
@@ -28,13 +34,20 @@
     padding: 10px;
     width: 400px;
     font-size: 30px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 5px;
 }
 .saleTotal{
     display: inline-flex;
     justify-content:flex-end;
-    margin: 30px;
+    margin: 30px 50px;
     background-color: white;
     padding: 10px;
-    border-radius: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     font-size: 40px;
 }
