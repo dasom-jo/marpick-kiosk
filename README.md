@@ -2,11 +2,16 @@
 
 # 마라  PICK
 
-## 1. 프로젝트 설명
+## 1. 프로젝트 목표
 
-마라탕을 주제로한 키오스크입니다.
+Next.js의 서버 와 클라이어트에대한 이해와 recoil을 이용한 상태관리를 목표로
+마라탕 을 주제로한 키오스크 개발
 
-## 2. 주요 기능
+## 3. 개발 환경
+<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 Badge" /> <img src="https://img.shields.io/badge/React-20232A.svg?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React.js Badge" /> <img src="https://img.shields.io/badge/TypeScript-007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript Badge" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=20232A" alt="JavaScript Badge" /> <img src="https://img.shields.io/badge/SCSS-CC6699.svg?style=for-the-badge&logo=sass&logoColor=white" alt="SCSS Badge" /> <img src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js Badge" /> <img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Badge" /> <img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge" />
+
+
+## 3. 주요 기능
 
 ### [포장페이지]
 - 헤더
@@ -75,11 +80,8 @@
   </tr>
 </table>
 
-## 3. 개발 환경
-<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 Badge" /> <img src="https://img.shields.io/badge/React-20232A.svg?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React.js Badge" /> <img src="https://img.shields.io/badge/TypeScript-007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript Badge" /> <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=20232A" alt="JavaScript Badge" /> <img src="https://img.shields.io/badge/SCSS-CC6699.svg?style=for-the-badge&logo=sass&logoColor=white" alt="SCSS Badge" /> <img src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js Badge" /> <img src="https://img.shields.io/badge/MySQL-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Badge" /> <img src="https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Badge" />
 
-
-## 6. 구조
+## 4. 구조
 
 ```
 src
@@ -125,7 +127,7 @@ src
 └─utils
 ```
 
-## 7. 트러블 슈팅
+## 5. 트러블 슈팅
 #### - 메뉴선택 페이지
 #### - 원인
 
@@ -143,7 +145,11 @@ src
 #### -해결
 NextApiRequest와 NextApiResponse를 이용하여Next.js의 pages/api에서는API Routes를 만들어 HTTP 요청과 응답을 처리하여 결제의 성공여부를 확인하고  app/pagement.tsx or pagementFail파일을 생성해 해당 페이지 구현하였습니다.
 
-## 8. 개발 후기
+## 6. 개발 후기
 
-처음진행하는 개인 프로젝트여서 기획부터 리팩토링까지 전부 컨트롤 하게되었지만 아직 부족한 실력으로 다사다나한 과정을 겪었습니다. next.js에대해 이해도도 
+처음진행하는 개인 프로젝트여서 기획부터 리팩토링까지 전부 컨트롤 하게되었지만 아직 부족한 실력으로 다사다나한 과정을 겪었습니다. next.js에대해 이해도도
    부족하여 트러블 슈팅이 만들어지며 예상보다 개발기간이 늦어졌지만 덕분에 많이 디버깅 과정과 기획 서류제작에대해 배울수있는 좋은 기회였고 무엇보다 많은 분량에 팀원들의 소중함을 알게되는 계기가되었습니다
+
+
+## 7. 개선사항
+- 더많은 결제기능 구현
