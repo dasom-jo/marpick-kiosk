@@ -2,13 +2,12 @@
 
 import SelectMain from "@/containers/SelectPage/SelectMenu";
 
-
 const MenuPage = () => {
-    return (
-        <>
-            <SelectMain/>
-        </>
-     );
-}
+  return (
+    <>
+      <SelectMain />
+    </>
+  );
+};
 
 export default MenuPage;

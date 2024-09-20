@@ -1,25 +1,25 @@
-#Title  {
-    color: black;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top:30px;
-    max-width: 763px;
+#Title {
+  color: black;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 30px;
+  max-width: 763px;
 }
 
-#TitleName{
-    z-index: 4;
-    font-size: 70px;
-    cursor: pointer;
+#TitleName {
+  z-index: 4;
+  font-size: 70px;
+  cursor: pointer;
 }
 
-.Circle{
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background-color: red;
-    justify-content: center;
-    position:absolute;
-    z-index: 0;
-    right: 260px;
+.Circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: red;
+  justify-content: center;
+  position: absolute;
+  z-index: 0;
+  right: 260px;
 }

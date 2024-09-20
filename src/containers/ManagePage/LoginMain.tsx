@@ -18,16 +18,15 @@ const ManageLogin: React.FC = () => {
 
   const onSubmit: SubmitHandler<{ password: string }> = async (data) => {
     if (!data.password) {
-        console.log('data.password',data.password);
-        return;
+      console.log("data.password", data.password);
+      return;
     }
 
     const result = await signIn("credentials", {
-        redirect: false,
-        password: data.password,
-
+      redirect: false,
+      password: data.password,
     });
-    console.log("SignIn result:", result,data.password);
+    console.log("SignIn result:", result, data.password);
 
     if (result?.error) {
       setLoginError("아이디 또는 비밀번호가 잘못되었습니다.");
@@ -48,9 +47,7 @@ const ManageLogin: React.FC = () => {
             type="password"
             {...register("password", { required: true })}
           />
-          {errors.password && (
-            <span>비밀번호를 입력해야 합니다.</span>
-          )}
+          {errors.password && <span>비밀번호를 입력해야 합니다.</span>}
         </div>
         <div className="loginBtn">
           <button id="loginBtn1" type="submit">

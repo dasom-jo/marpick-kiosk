@@ -1,8 +1,8 @@
 import NextAuth, { User as NextAuthUser } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { getConnection, query } from '../../../app/api/db';
+import { getConnection, query } from "../../../app/api/db";
 
-interface User  extends NextAuthUser {
+interface User extends NextAuthUser {
   id: string;
   password: string;
 }
@@ -20,10 +20,9 @@ export default NextAuth({
         if (!credentials || !credentials.password) {
           console.log("No credentials or password provided");
           return null;
-        }else{ console.log("password");}
-
-        console.log("Authorize function called");
-        console.log("Credentials received:", credentials);
+        } else {
+          console.log("password");
+        }
 
         try {
           const connection = await getConnection();

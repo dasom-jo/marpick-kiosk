@@ -1,10 +1,8 @@
-"use client"
+"use client";
 import ManageLogin from "@/containers/ManagePage/LoginMain";
 
 const Page = () => {
-    return (
-    <ManageLogin />
-    );
-}
+  return <ManageLogin />;
+};
 
-export default Page ;
+export default Page;

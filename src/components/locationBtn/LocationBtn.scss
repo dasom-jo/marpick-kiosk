@@ -1,19 +1,18 @@
-#LocationDoubleBtn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#LocationDoubleBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.LocationBtn{
-    margin: 10px 50px;
-    padding: 40px;
-    background-color: red;
-    border-radius: 10px;
-    cursor: pointer;
-    color: white;
-    font-size: 30px;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-
+.LocationBtn {
+  margin: 10px 50px;
+  padding: 40px;
+  background-color: red;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 30px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
 }

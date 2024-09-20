@@ -1,12 +1,11 @@
 import MenuPage from "@/pages/api/menu/page";
 
-
 const Menu = () => {
-    return (
-        <>
-            <MenuPage/>
-        </>
-     );
-}
+  return (
+    <>
+      <MenuPage />
+    </>
+  );
+};
 
 export default Menu;

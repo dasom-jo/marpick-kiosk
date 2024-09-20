@@ -1,8 +1,7 @@
 "use client";
-import React from 'react';
-import { RecoilRoot } from 'recoil';
-import Header from '@/components/header/Header';
-
+import React from "react";
+import { RecoilRoot } from "recoil";
+import Header from "@/components/header/Header";
 
 export default function RootLayout({
   children,
@@ -10,7 +9,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html >
+    <html>
       <body>
         <RecoilRoot>
           <Header />

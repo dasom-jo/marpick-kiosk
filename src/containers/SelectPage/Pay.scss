@@ -1,25 +1,25 @@
-.imgBox{
-    display: flex;
-    justify-content: center;
-    margin: 20px 20px;
+.imgBox {
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px;
 }
 
-.imgSmallBox{
-    width: 500px;
-    height: 150px;
-    background-color: aqua;
-    margin: 30px;
-    border-radius: 10px;
-    cursor: pointer;
+.imgSmallBox {
+  width: 500px;
+  height: 150px;
+  background-color: aqua;
+  margin: 30px;
+  border-radius: 10px;
+  cursor: pointer;
 }
-.imgSmallBox:active{
-    width: 450px;
+.imgSmallBox:active {
+  width: 450px;
 }
 
-.imgText{
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    font-size: 30px;
-    color: gray;
+.imgText {
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  font-size: 30px;
+  color: gray;
 }

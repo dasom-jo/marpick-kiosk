@@ -1,53 +1,54 @@
 @font-face {
-    font-family: 'HSSaemaul-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "HSSaemaul-Regular";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSSaemaul-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
-*{
-    font-family: 'HSSaemaul-Regular';
+* {
+  font-family: "HSSaemaul-Regular";
 }
 
-.saleBox{
-    background-color:rgb(250, 212, 212);;
-    margin:100px auto;
-    width: 500px;
-    height: 600px;
-    border-radius: 20px;
-    overflow-y: scroll;
+.saleBox {
+  background-color: rgb(250, 212, 212);
+  margin: 100px auto;
+  width: 500px;
+  height: 600px;
+  border-radius: 20px;
+  overflow-y: scroll;
 }
-.saleTitle{
-    display: inline-flex;
-    width: 150px;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    margin: 30px 50px;
-    background-color: white;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.saleTitle {
+  display: inline-flex;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  margin: 30px 50px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.saleSmallBox{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    width: 400px;
-    font-size: 30px;
-    background-color: white;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 5px;
+.saleSmallBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  width: 400px;
+  font-size: 30px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 5px;
 }
-.saleTotal{
-    display: inline-flex;
-    justify-content:flex-end;
-    margin: 30px 50px;
-    background-color: white;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    font-size: 40px;
+.saleTotal {
+  display: inline-flex;
+  justify-content: flex-end;
+  margin: 30px 50px;
+  background-color: white;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 40px;
 }

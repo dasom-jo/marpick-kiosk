@@ -22,10 +22,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       await query(connection, insertSql, values);
 
-      res.status(200).json({ message: '리뷰가 성공적으로 저장되었습니다' });
+      res.status(200).json({ message: '매출이 성공적으로 저장되었습니다' });
     } catch (error) {
       console.error('리뷰 저장 중 오류 발생:', error);
-      res.status(500).json({ message: '서버 오류: 리뷰를 저장할 수 없습니다' });
+      res.status(500).json({ message: '서버 오류: 매출을 저장할 수 없습니다' });
     } finally {
       connection.release();
     }
