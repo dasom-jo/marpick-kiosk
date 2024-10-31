@@ -1,29 +1,29 @@
 "use client";
 import { countIcon } from "@/recoil/atoms/atoms";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import "./Location.scss";
-import { filterLanguage } from "@/recoil/selector/selectors";
+import { useTranslation } from "react-i18next"; // react-i18next 사용
 
 const Location = () => {
   const iconNumber = useRecoilValue(countIcon);
-  const translations = useRecoilValue(filterLanguage);
+  const { t } = useTranslation(); // useTranslation 훅 사용
 
   return (
     <>
       <div className="icon">
         <div className={`icon1 ${iconNumber === 0 ? "red" : "black"}`}>
-          <div>{translations.ingredients}</div>
+          <div>{t("ingredients")}</div> {/* 번역 적용 */}
           <ShoppingCartOutlinedIcon style={{ fontSize: "50px" }} />
         </div>
 
         <div className={`icon1 ${iconNumber === 1 ? "red" : "black"}`}>
-          <div className="taste">{translations.taste}</div>
+          <div className="taste">{t("taste")}</div> {/* 번역 적용 */}
           <ShoppingCartOutlinedIcon style={{ fontSize: "50px" }} />
         </div>
 
         <div className={`icon1 ${iconNumber === 2 ? "red" : "black"}`}>
-          <div>{translations.pay}</div>
+          <div>{t("pay")}</div> {/* 번역 적용 */}
           <ShoppingCartOutlinedIcon style={{ fontSize: "50px" }} />
         </div>
       </div>

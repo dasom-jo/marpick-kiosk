@@ -23,7 +23,7 @@
     "@tosspayments/tosspayments-sdk": "^2.3.0",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
-    "i18next": "^23.14.0",
+    "i18next": "^23.16.4",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.0",
     "next": "^14.2.7",
@@ -31,7 +31,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.0",
-    "react-i18next": "^15.0.1",
+    "react-i18next": "^15.1.0",
     "recoil": "^0.7.7",
     "sass": "^1.77.8",
     "sweetalert2": "^11.12.4"

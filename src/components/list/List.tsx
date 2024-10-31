@@ -1,16 +1,16 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import "./List.scss";
-import { filterLanguage } from "@/recoil/selector/selectors";
 import { eatOrGo, foodList, tasteList, totalPay } from "@/recoil/atoms/atoms";
 import ClearIcon from "@mui/icons-material/Clear";
 import { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { foodType } from "./type";
+import { useTranslation } from "react-i18next"; // useTranslation 추가
 
 const List = () => {
-  //백엔드에 보낼것: 날짜 총액
-  const translations = useRecoilValue(filterLanguage);
+  // 다국어 지원을 위한 useTranslation 훅
+  const { t } = useTranslation();
   const menuList = useRecoilValue(foodList);
   const [counts, setCounts] = useState<{ [id: string]: number }>({});
   const [filteredList, setFilteredList] = useRecoilState(foodList);
@@ -74,9 +74,9 @@ const List = () => {
   return (
     <div className="ListBox">
       <div className="ListName">
-        <div className="ListName1">{translations["Selected menu"]}</div>
-        <div className="ListName1">{translations.count}</div>
-        <div className="ListName1">{translations.amount}</div>
+        <div className="ListName1">{t("Selected_menu")}</div>
+        <div className="ListName1">{t("count")}</div>
+        <div className="ListName1">{t("amount")}</div>
       </div>
 
       <div className="ListPrint">
@@ -105,11 +105,10 @@ const List = () => {
           })}
       </div>
       <div className="seletedList">
-        [{translations.taste}]: {seletedList} / [{translations.takeOut}] :{" "}
-        {takeOut}
+        [{t("taste")}]: {seletedList} / [{t("takeOut")}] : {t("takeOut")}
       </div>
       <div className="ListSum">
-        {translations["total amount"]} : {sumPay} ₩
+        {t("total_amount")} : {sumPay} ₩
       </div>
     </div>
   );

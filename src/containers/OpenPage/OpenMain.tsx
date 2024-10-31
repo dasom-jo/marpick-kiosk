@@ -1,23 +1,23 @@
 "use client";
 import { eatOrGo, langChange } from "@/recoil/atoms/atoms";
 import { useRouter } from "next/navigation";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import FlatwareIcon from "@mui/icons-material/Flatware";
 import "../OpenPage/OpenMain.scss";
 import "../../app/globals.scss";
-import { filterLanguage } from "@/recoil/selector/selectors";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const OpenMain = () => {
   const router = useRouter();
+  const { t, i18n } = useTranslation();
   const [wantHere, setWantHere] = useRecoilState(eatOrGo);
-  const [changeKR, setChangeKR] = useRecoilState(langChange);
-  const translations = useRecoilValue(filterLanguage);
+  const [currentLang, setCurrentLang] = useRecoilState(langChange);
 
   useEffect(() => {
-    localStorage.setItem("changeKR", changeKR);
-  }, [changeKR]);
+    localStorage.setItem("changeKR", currentLang);
+  }, [currentLang]);
 
   const handleTakeOut = () => {
     const updatedState = [...wantHere];
@@ -25,6 +25,7 @@ const OpenMain = () => {
     setWantHere(updatedState);
     router.push("/menu");
   };
+
   const handleForHere = () => {
     const updatedState = [...wantHere];
     updatedState[0] = "ForHere";
@@ -32,9 +33,11 @@ const OpenMain = () => {
     router.push("/menu");
   };
 
-  const onChangeLang = (newLanguage: string) => {
-    setChangeKR(newLanguage);
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    setCurrentLang(lang);
   };
+
   const moveLogin = () => {
     router.push("/managelogin");
   };
@@ -53,7 +56,7 @@ const OpenMain = () => {
               }}
             />
           </div>
-          <div className="ClickBtnText">{translations.takeOut}</div>
+          <div className="ClickBtnText">{t("takeOut")}</div>
         </div>
         <div id="ForHere" onClick={handleForHere}>
           <FlatwareIcon
@@ -64,19 +67,19 @@ const OpenMain = () => {
               color: "white",
             }}
           />
-          <div className="ClickBtnText">{translations.forHere}</div>
+          <div className="ClickBtnText">{t("forHere")}</div>
         </div>
       </div>
       <div>
-        {changeKR === "ko-KR" ? (
+        {currentLang === "ko-KR" ? (
           <div id="ChangeBox">
-            <div id="ChangeLanguage" onClick={() => onChangeLang("en-US")}>
+            <div id="ChangeLanguage" onClick={() => changeLanguage("en-US")}>
               ENGLISH
             </div>
           </div>
         ) : (
           <div id="ChangeBox">
-            <div id="ChangeLanguage" onClick={() => onChangeLang("ko-KR")}>
+            <div id="ChangeLanguage" onClick={() => changeLanguage("ko-KR")}>
               한국어
             </div>
           </div>
@@ -84,7 +87,7 @@ const OpenMain = () => {
       </div>
       <div id="manageBtn">
         <div id="manageText" onClick={moveLogin}>
-          관리자페이지
+          {t("adminPage")}
         </div>
       </div>
     </>
