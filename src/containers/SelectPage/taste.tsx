@@ -3,14 +3,16 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { foodList, langChange, tasteList } from "@/recoil/atoms/atoms";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import { dataState, filterLanguage } from "@/recoil/selector/selectors";
+import { dataState } from "@/recoil/selector/selectors";
 import { menuType } from "./type";
+import { useTranslation } from "react-i18next";
+
 const Taste = () => {
+  const { t, i18n } = useTranslation();
   const allData = useRecoilValue(dataState);
   const [data, setData] = useState<menuType[]>([]);
   const filtered = useRecoilValue(langChange);
   const [selectedTaste, setSelectedTaste] = useRecoilState(tasteList);
-  const translations = useRecoilValue(filterLanguage);
 
   useEffect(() => {
     try {
@@ -20,6 +22,7 @@ const Taste = () => {
     }
   }, [setData]);
 
+  // 필터된 데이터
   const filteredData = Array.isArray(data)
     ? data.filter((item: menuType) => item.language_code === filtered)
     : [];
@@ -28,7 +31,7 @@ const Taste = () => {
     setSelectedTaste(item.translation);
     Swal.fire({
       position: "center",
-      title: `"${item.translation}"${translations.selectmodalment}`,
+      title: `"${item.translation}" ${t("selectmodalment")}`,
       showConfirmButton: false,
       timer: 1000,
       width: "500px",

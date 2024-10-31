@@ -87,7 +87,7 @@ const OpenMain = () => {
       </div>
       <div id="manageBtn">
         <div id="manageText" onClick={moveLogin}>
-          {t("adminPage")}
+          관리자 페이지
         </div>
       </div>
     </>

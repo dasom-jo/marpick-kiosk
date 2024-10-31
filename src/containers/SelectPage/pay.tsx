@@ -4,10 +4,10 @@ import "./Pay.scss";
 import { loadTossPayments } from "@tosspayments/payment-sdk";
 import { useRecoilValue } from "recoil";
 import { totalPay } from "@/recoil/atoms/atoms";
-import { filterLanguage } from "@/recoil/selector/selectors";
+import { useTranslation } from "react-i18next"; // react-i18next 사용
 
 const Pay = () => {
-  const translations = useRecoilValue(filterLanguage);
+  const { t } = useTranslation(); // t 함수로 번역 사용
   const sumPay = useRecoilValue(totalPay);
 
   const handleToss = async () => {
@@ -57,7 +57,7 @@ const Pay = () => {
 
   return (
     <>
-      <p className="imgText">{translations.onlycard}</p>
+      <p className="imgText">{t("onlycard")}</p> {/* 번역 키로 변경 */}
       <div className="imgBox">
         <Image
           className="imgSmallBox"
