@@ -20,5 +20,6 @@ export default {
     'Complete payment':"Complete payment",
     'Payment failed' :'Payment failed',
     "again":"Please try again from the beginning.",
-    "back" : 'back to beginning'
+    "back" : 'back to beginning',
+    "amountpay":"amountpay"
 };

@@ -20,5 +20,6 @@ export default {
     'Complete payment':"결제 완료하기",
     'Payment failed':'결제가 실패하였습니다',
     "again":"처음부터 다시해주시길 바랍니다",
-    'back':"처음으로 돌아가기"
+    'back':"처음으로 돌아가기",
+    "amountpay":"총액"
 };
