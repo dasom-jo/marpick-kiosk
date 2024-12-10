@@ -1,13 +1,7 @@
 <img src="https://github.com/user-attachments/assets/2c54d62b-a53f-4c9a-87db-69807f116cc4" width="600" height="400" style="object-fit: cover;" />
 
 # 마라  PICK
-<div >
-   <img src="[https://github.com/user-attachments/assets/a420847a-e540-4098-bc81-fd5503f50dbe](https://github.com/user-attachments/assets/69c1df33-f17f-45b6-b907-ab6ddc6b6c87)" width="500" height="700" style="object-fit: cover;" />
-</div>
-
-
-
-
+https://github.com/user-attachments/assets/fc711949-519d-4f5b-bd43-d655a9db763f
 
 ## 1. 프로젝트 목표
 
