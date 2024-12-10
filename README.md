@@ -2,6 +2,8 @@
 
 # 마라  PICK
 
+https://github.com/user-attachments/assets/a420847a-e540-4098-bc81-fd5503f50dbe
+
 ## 1. 프로젝트 목표
 
 Next.js의 서버 와 클라이어트에대한 이해와 recoil을 이용한 상태관리를 목표로
