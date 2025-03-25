@@ -78,7 +78,9 @@ const PaymentPage = () => {
         <div className="paymentBox">
           <h2 id="paymentTitle">{translations.success}</h2>
         </div>
-        <div className="paymentBox1">{translations.amountpay}:{sumPay}원</div>
+        <div className="paymentBox1">
+          {translations.amountpay}:{sumPay}원
+        </div>
         <div className="paymentBox">
           <button id="paymentBtn" onClick={handlePayment}>
             {translations["Complete payment"]}

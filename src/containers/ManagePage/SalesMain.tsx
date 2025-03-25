@@ -32,7 +32,7 @@ const SalesList = () => {
   const sum = () => {
     return data.reduce(
       (total, item) => total + parseFloat(item.coin || "0"),
-      0
+      0,
     );
   };
 
